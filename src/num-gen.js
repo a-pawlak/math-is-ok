@@ -1,4 +1,5 @@
 import * as config from './config.js'
+import state from './model.js'
 
 export function numberGenerator(slide, level) {
 const {min, max} = level === 0 ? config.LEVEL_0 : config.LEVEL_1
@@ -30,3 +31,7 @@ function getRandomNumber(min, max){
   return Math.floor((Math.random() * max) + min)
 }
 
+export function manageNumbers(slide){
+  state.setRandomNumbers(numberGenerator(slide, state.level))
+  state.setCorrectResult(state.getRandomNumbers()[2])
+}

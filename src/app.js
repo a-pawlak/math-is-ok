@@ -2,7 +2,8 @@ import taskView from "./views/task-view.js";
 import keyboardView from "./views/keyboard-view.js";
 import * as handler from './handlers.js'
 import state from './model.js'
-import { numberGenerator } from "./num-gen.js";
+import { manageNumbers } from "./num-gen.js";
+import levelView from "./views/level-view.js";
 
 const app = function(){
   const swiper = new Swiper(".mySwiper", {
@@ -24,7 +25,6 @@ taskView.renderTask(0, state.getRandomNumbers()) // initial view
   
 function slideChangeHandler(){
   manageNumbers(swiper.activeIndex); 
-  console.log(state.getRandomNumbers());
   keyboardView.clear();
   taskView.renderTask(swiper.activeIndex, state.getRandomNumbers());
   state.setActiveIndex(swiper.activeIndex)
@@ -34,12 +34,10 @@ function slideChangeHandler(){
 swiper.on('slideChange', slideChangeHandler)
 
 keyboardView.keyboardListener(handler.keyboard)
+
+levelView.levelListener(handler.levels)
 }
 
-function manageNumbers(slide){
-  state.setRandomNumbers(numberGenerator(slide, state.level))
-  state.setCorrectResult(state.getRandomNumbers()[2])
-}
 
 app();
 

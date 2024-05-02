@@ -1,5 +1,5 @@
 class State {
-level = 1;
+level = 0;
 
 activeIndex = 0;
 
@@ -41,6 +41,9 @@ setRandomNumbers(arr){
 }
 getRandomNumbers(){
   return this.randomNumbers;
+}
+setLevel(level) {
+  this.level = level
 }
 
 }

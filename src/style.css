@@ -140,6 +140,9 @@ body {
   color: var(--color-3);
   border-radius: 2px;
 }
+.swiper .header {
+  letter-spacing: 1.3px;
+}
 .wrapper span {
   font-size: 4rem;
   border-bottom: 1px solid transparent;

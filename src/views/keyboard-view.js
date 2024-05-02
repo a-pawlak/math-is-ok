@@ -31,6 +31,8 @@ class KeyboardView {
   }
   clear(){
     this.userInput.length = 0;
+    this.userNumber = '';
+
   }
 }
 
