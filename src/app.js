@@ -1,4 +1,9 @@
-import taskView from "./views/task-view";
+import taskView from "./views/task-view.js";
+import keyboardView from "./views/keyboard-view.js";
+import * as handler from './handlers.js'
+import state from './model.js'
+import { numberGenerator } from "./num-gen.js";
+
 const app = function(){
   const swiper = new Swiper(".mySwiper", {
     effect: "cube",
@@ -13,13 +18,27 @@ const app = function(){
       el: ".swiper-pagination",
     },
   });
+
+manageNumbers(0);
+taskView.renderTask(0, state.getRandomNumbers()) // initial view
   
 function slideChangeHandler(){
-  taskView.renderTask(swiper.activeIndex)
-    
+  manageNumbers(swiper.activeIndex); 
+  console.log(state.getRandomNumbers());
+  keyboardView.clear();
+  taskView.renderTask(swiper.activeIndex, state.getRandomNumbers());
+  state.setActiveIndex(swiper.activeIndex)
+ 
 }
-taskView.renderTask(0)
+
 swiper.on('slideChange', slideChangeHandler)
+
+keyboardView.keyboardListener(handler.keyboard)
+}
+
+function manageNumbers(slide){
+  state.setRandomNumbers(numberGenerator(slide, state.level))
+  state.setCorrectResult(state.getRandomNumbers()[2])
 }
 
 app();

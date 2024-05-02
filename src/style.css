@@ -17,6 +17,7 @@ html, body {
 }
 
 body {
+  user-select: none;
   font-family: "Patrick Hand SC", cursive !important;
   height: 95vh;
   overflow: clip;
@@ -27,7 +28,6 @@ body {
   background:var(--color-1);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #000;
   margin: 0;
   padding: 1rem;
 }
@@ -57,23 +57,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--color-3)
+  color: var(--color-3);
 }
 
-.menu input[type="checkbox"]:checked ~.menu--level-box::before {
-  opacity: 0;
-}
-
-.menu input[type="checkbox"]:checked ~.menu--level-box::after {
+.menu input[type="checkbox"]:checked ~.menu--level-box::before{
   content: 'Zadania trudne';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--color-2);
 }
 
 .menu--level-circle {
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,13 +73,17 @@ body {
   font-size: 4rem;
   height: 4rem;
   width: 4rem;
+  background-color: #fff;
   border-radius: 50%;
   animation: move-left 1.5s ease-in-out;
   animation-fill-mode:forwards;
+  z-index: 10;
 }
 .bug-icon {
   stroke: var(--color-3);
   transition: all 1.5s;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .menu input[type="checkbox"]:checked ~.menu--level-box span .bug-icon {
@@ -141,19 +137,106 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  color: var(--color-3)
+  color: var(--color-3);
+  border-radius: 2px;
 }
 .wrapper span {
   font-size: 4rem;
+  border-bottom: 1px solid transparent;
 }
 .wrapper span:nth-child(5){
   border-bottom: 1px solid var(--color-4);
+  display: inline-block;
+  width: 5rem;
 }
 .comment {
   margin-top: 2rem;
   font-size: 3rem;
-  color: var(--color-green)
+  color: var(--color-green);
+  transform: translateY(10rem);
+  opacity: 0;
+  visibility: hidden;
+  
 }
+.correct-comment {
+  visibility: visible;
+  animation: move-comment 1s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes move-comment {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+.correct-input {
+  animation: correct-input 1s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes correct-input {
+  0% {
+  border-color: transparent;
+  font-weight: inherit;
+  transform: scale(0);
+  color: inherit
+  }
+  50% {
+    transform: scale(1.5);
+    border-color: transparent;
+  }
+  100% {
+    border-color: var(--color-green);
+  font-weight: 500;
+  transform: scale(1.2);
+  color: var(--color-green)
+  }
+}
+.wrong-comment {
+  visibility: visible;
+  animation: move-comment-wrong 1s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes move-comment-wrong {
+  0% {
+    color: var(--color-red);
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+    color: var(--color-red);
+  }
+}
+.wrong-input {
+  animation: wrong-input 1s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes wrong-input {
+  0% {
+  color: var(--color-red);
+  border-color: transparent;
+  font-weight: inherit;
+  transform: scale(1);
+  color: inherit
+  }
+  50% {
+    transform: scale(1.2);
+    border-color: transparent;
+  }
+  100% {
+  border-color: transparent;
+  font-weight: 500;
+  transform: scale(0.5);
+  opacity: 0.3;
+  color: var(--color-red);
+  }
+}
+
 .keyboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -176,10 +259,13 @@ body {
   height: 6rem;
   transition: all 0.1s;
 }
-.btn:last-child {
-  grid-column: 2 / -1;
-  border-radius: 20px;
-  width: 16.6rem;
+[data-number="submit"] {
+  color: var(--color-green);
+  font-weight: 900;
+}
+[data-number="clear"] {
+  color: var(--color-red);
+  font-weight: 900;
 }
 .btn:active{
   background-color: var(--color-4);
