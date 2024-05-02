@@ -26,7 +26,6 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   background:var(--color-1);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   margin: 0;
   padding: 1rem;
@@ -131,7 +130,7 @@ body {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   background: var(--color-white);
   display: flex;
   justify-content: flex-start;
@@ -141,7 +140,23 @@ body {
   border-radius: 2px;
 }
 .swiper .header {
+  margin-top: 4rem;
   letter-spacing: 1.3px;
+}
+.stats {
+  width: 6rem;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+}
+.stats--description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stats--description span {
+  display: block;
 }
 .wrapper span {
   font-size: 4rem;
