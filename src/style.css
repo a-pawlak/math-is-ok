@@ -287,3 +287,6 @@ body {
   background-color: var(--color-4);
   color: var(--color-2)
 }
+.freeze {
+  pointer-events: none;
+}

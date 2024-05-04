@@ -11,10 +11,12 @@ export function keyboard(inputUser, action) {
     state.setUserResult(+inputUser);
     const correctness = state.correctResult === state.userResult;
     taskView.confirmResult(correctness, state.correctResult)
+    if(!correctness) setTimeout(function(){keyboardView.freezeKeyboard();}, 2000)
     if (correctness) state.saveStats();
     statsView.updateStats(...state.getStats())
     setTimeout(function(){
       keyboardView.clear();
+      keyboardView.freezeKeyboard();
       manageNumbers(state.activeIndex);
       newTaskRender()
       

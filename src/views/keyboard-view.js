@@ -10,6 +10,10 @@ class KeyboardView {
     }.bind(this))
   }
 
+  freezeKeyboard() {
+    this.keyboardParentEl.classList.toggle('freeze')
+  }
+
   keyboardHandler(e){
     const pressedEl = e.target.closest('.btn');
     if(!pressedEl)return
@@ -19,6 +23,7 @@ class KeyboardView {
     }
     else if (pressedEl.dataset.number === 'submit') {
       if(this.userInput.length === 0) return
+      this.freezeKeyboard();
       return 'submit'
     }
     else {
