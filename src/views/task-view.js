@@ -1,6 +1,9 @@
 import markups from "./markups.js";
+import { priseList } from "../config.js";
+import shuffle from "/node_modules/lodash-es/shuffle.js";
 
 class TaskView {
+  commentList = shuffle(priseList.slice())
 
   renderTask(slide, randomNumbers, userNumber = ''){
     const parentElement = document.querySelector(`.slide-${slide > 3 ? slide - 3 : slide}`);
@@ -17,9 +20,12 @@ class TaskView {
     })
   }
   confirmResult(compare, res){
+    if (this.commentList.length <= 0) this.commentList = shuffle(priseList.slice())
+    const comment = this.commentList.pop();
     const commentEL = document.querySelector('.comment')
     const userInputEL = document.querySelector('.user-input')
     if (compare) {
+      commentEL.textContent = comment;
       commentEL.classList.add('correct-comment');
       userInputEL.classList.add('correct-input')
     }
