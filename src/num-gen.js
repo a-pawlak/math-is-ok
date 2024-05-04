@@ -3,13 +3,15 @@ import state from './model.js'
 
 export function numberGenerator(slide, level) {
 const {min, max} = level === 0 ? config.LEVEL_0 : config.LEVEL_1
-const corrector = level === 0 ? 0 : 37
+let corrector = level === 0 ? 0 : 37
 if (slide === 0) {
+  corrector = level === 0 ? 4 : 37
   const num1 = getRandomNumber(min, max + corrector);
   const num2 = getRandomNumber(min, max + corrector);
   return [num1, num2, num1 + num2]
 }
 if (slide === 1) {
+  corrector = level === 0 ? 4 : 37
   const num1 = getRandomNumber(min, max + corrector);
   const num2 = getRandomNumber(min, max + corrector);
   return [num1 + num2, num1, num2]

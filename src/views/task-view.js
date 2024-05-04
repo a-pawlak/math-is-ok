@@ -3,9 +3,10 @@ import markups from "./markups.js";
 class TaskView {
 
   renderTask(slide, randomNumbers, userNumber = ''){
-    const parentElement = document.querySelector(`.slide-${slide}`);
+    const parentElement = document.querySelector(`.slide-${slide > 3 ? slide - 3 : slide}`);
     this.clear();
     parentElement.insertAdjacentHTML("afterbegin", markups.generateMarkup(slide));
+    if(slide > 3) return
     parentElement.querySelector('.user-input').textContent = userNumber;
     parentElement.querySelector('.first-number').textContent = randomNumbers[0];
     parentElement.querySelector('.second-number').textContent = randomNumbers[1];

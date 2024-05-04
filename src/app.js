@@ -27,7 +27,10 @@ statsView.updateStats(...state.getStats())
 function slideChangeHandler(){
   manageNumbers(swiper.activeIndex); 
   keyboardView.clear();
-  taskView.renderTask(swiper.activeIndex, state.getRandomNumbers());
+  const featuresAvalabitity = state.checkFeaturesAvalability(swiper.activeIndex) ? swiper.activeIndex : (swiper.activeIndex + 3);
+  taskView.renderTask(featuresAvalabitity, state.getRandomNumbers());
+   
+  if (!state.checkFeaturesAvalability(swiper.activeIndex)) return
   state.setActiveIndex(swiper.activeIndex)
   statsView.updateStats(...state.getStats())
  

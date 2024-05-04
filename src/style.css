@@ -144,7 +144,7 @@ body {
   letter-spacing: 1.3px;
 }
 .stats {
-  width: 6rem;
+  width: 8rem;
   font-size: 1.6rem;
   position: absolute;
   top: 0;
@@ -155,9 +155,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.stats--description span {
-  display: block;
-}
+
 .wrapper span {
   font-size: 4rem;
   border-bottom: 1px solid transparent;
