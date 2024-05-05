@@ -16,5 +16,7 @@ export const priseList = [
   'WOW!',
   'Idealnie!',
   'Mistrz!',
-  'Wyjąktowo!'
+  'Wyjątkowo!',
+  'Bezbłędnie!',
+  'Wypas!'
 ]

@@ -4,6 +4,7 @@ import { manageNumbers } from "./num-gen.js";
 import keyboardView from "./views/keyboard-view.js";
 import statsView from "./views/stats-view.js";
 import levelView from "./views/level-view.js";
+import resetView from "./views/reset-view.js";
 
 export function keyboard(inputUser, action) { 
   newTaskRender(inputUser)
@@ -39,4 +40,14 @@ export function newTaskRender(inputUser = null){
   const randomNumbers = state.getRandomNumbers();  
   taskView.renderTask(state.getActiveIndex(), randomNumbers, inputUser)
   statsView.updateStats(...state.getStats())
+}
+
+export function resetHandler(){
+  const action = confirm('Usunąć wszystkie dane?');
+  if (action) {
+    state.resetData();
+    statsView.updateStats(...state.getStats());
+    alert('Dane usunięte!')
+  }; 
+  resetView.resetHandler;
 }

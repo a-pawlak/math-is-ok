@@ -5,6 +5,7 @@ import state from './model.js'
 import { manageNumbers } from "./num-gen.js";
 import levelView from "./views/level-view.js";
 import statsView from "./views/stats-view.js";
+import resetView from "./views/reset-view.js";
 
 const app = function(){
   const swiper = new Swiper(".mySwiper", {
@@ -39,7 +40,11 @@ swiper.on('slideChange', slideChangeHandler)
 
 keyboardView.keyboardListener(handler.keyboard)
 
-levelView.levelListener(handler.levels)
+levelView.levelListener(handler.levels);
+
+resetView.resetListener();
+
+resetView.modalListener(handler.resetHandler);
 
 }
 

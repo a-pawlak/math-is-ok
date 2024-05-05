@@ -170,6 +170,22 @@ getStats(){
   }
 }
 
+resetData(){
+  const data = {
+  date: '',
+  level0: {current: 
+    {addition: 0, subtraction: 0, multiplication: 0, division: 0},
+    best: {addition: 0, subtraction: 0, multiplication: 0, division: 0},
+  }, 
+  level1: {current: 
+    {addition: 0, subtraction: 0, multiplication: 0, division: 0},
+    best: {addition: 0, subtraction: 0, multiplication: 0, division: 0},
+  }
+}
+  this.stats = data
+  localStorage.setItem('math-is-ok', JSON.stringify(this.stats));
+}
+
 }
 
 export default new State()
