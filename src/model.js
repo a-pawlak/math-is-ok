@@ -105,43 +105,43 @@ saveStats(){
   if (this.level === 0) {
     if (this.activeIndex === 0)  {
       this.stats.level0.current.addition++;
-      this.stats.level0.best.addition++;
+      if (this.stats.level0.current.addition > this.stats.level0.best.addition) this.stats.level0.best.addition = this.stats.level0.current.addition;      
       this.subtractionActiveEasy = this.stats.level0.best.addition;
     }
     if (this.activeIndex === 1) {
       this.stats.level0.current.subtraction++;
-      this.stats.level0.best.subtraction++;
+      if (this.stats.level0.current.subtraction > this.stats.level0.best.subtraction) this.stats.level0.best.subtraction = this.stats.level0.current.subtraction; 
       this.multiplicationActiveEasy = this.stats.level0.best.subtraction;
     }
     if (this.activeIndex === 2) {
       this.stats.level0.current.multiplication++;
-      this.stats.level0.best.multiplication++;
+      if (this.stats.level0.current.multiplication > this.stats.level0.best.multiplication) this.stats.level0.best.multiplication = this.stats.level0.current.multiplication; 
       this.divisionActiveEasy = this.stats.level0.best.multiplication;
     }
     if (this.activeIndex === 3) {
       this.stats.level0.current.division++;
-      this.stats.level0.best.division++;
+      if (this.stats.level0.current.division > this.stats.level0.best.division) this.stats.level0.best.division = this.stats.level0.current.division; 
     }
   }
   if (this.level === 1) {
     if (this.activeIndex === 0) {
       this.stats.level1.current.addition++;
-      this.stats.level1.best.addition++;
+      if (this.stats.level1.current.addition > this.stats.level1.best.addition) this.stats.level1.best.addition = this.stats.level1.current.addition; 
       this.subtractionActiveHard = this.stats.level1.best.addition;
   }
     if (this.activeIndex === 1) {
       this.stats.level1.current.subtraction++;
-      this.stats.level1.best.subtraction++;
+      if (this.stats.level1.current.subtraction > this.stats.level1.best.subtraction) this.stats.level1.best.subtraction = this.stats.level1.current.subtraction; 
       this.multiplicationActiveHard = this.stats.level1.best.subtraction;
     }
     if (this.activeIndex === 2) {
       this.stats.level1.current.multiplication++;
-      this.stats.level1.best.multiplication++;
+      if (this.stats.level1.current.multiplication > this.stats.level1.best.multiplication) this.stats.level1.best.multiplication = this.stats.level1.current.multiplication; 
       this.divisionActiveHard = this.stats.level1.best.multiplication;
     }
     if (this.activeIndex === 3) {
       this.stats.level1.current.division++
-      this.stats.level1.best.division++
+      if (this.stats.level1.current.division > this.stats.level1.best.division) this.stats.level1.best.division = this.stats.level1.current.division; 
   }
   }
   localStorage.setItem('math-is-ok', JSON.stringify(this.stats))

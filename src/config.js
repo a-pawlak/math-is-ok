@@ -9,5 +9,12 @@ export const priseList = [
   'Dobrze idzie!',
   '👍🏻', '💪🏻',
   'Tak trzymaj!',
-  'Umiesz to!'
+  'Umiesz to!',
+  'Wspaniale!',
+  'Jak Einstein!',
+  'Cool!',
+  'WOW!',
+  'Idealnie!',
+  'Mistrz!',
+  'Wyjąktowo!'
 ]
