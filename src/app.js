@@ -29,10 +29,9 @@ function slideChangeHandler(){
   keyboardView.clear();
   const featuresAvalabitity = state.checkFeaturesAvalability(swiper.activeIndex) ? swiper.activeIndex : (swiper.activeIndex + 3);
   taskView.renderTask(featuresAvalabitity, state.getRandomNumbers());
-   
+  state.setActiveIndex(swiper.activeIndex);
   if (!state.checkFeaturesAvalability(swiper.activeIndex)) return
-  state.setActiveIndex(swiper.activeIndex)
-  statsView.updateStats(...state.getStats())
+  statsView.updateStats(...state.getStats());  
  
 }
 

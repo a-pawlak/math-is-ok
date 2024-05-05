@@ -11,10 +11,9 @@ export function keyboard(inputUser, action) {
   if (action === 'submit'){
     state.setUserResult(+inputUser);
     const correctness = state.correctResult === state.userResult;
-    taskView.confirmResult(correctness, state.correctResult)
-    if(!correctness) setTimeout(function(){keyboardView.freezeKeyboard();}, 2000)
+    taskView.confirmResult(correctness, state.correctResult);
     if (correctness) state.saveStats();
-    statsView.updateStats(...state.getStats())
+    statsView.updateStats(...state.getStats());
     setTimeout(function(){
       keyboardView.clear();
       keyboardView.freezeKeyboard();

@@ -4,7 +4,6 @@ class LevelView {
   levelListener(handler){
     this.levelEl.addEventListener('click', function(e){
       handler(e.target.parentElement.firstElementChild.checked);
-      
     }.bind(this))
   }
   freezeToggler() {

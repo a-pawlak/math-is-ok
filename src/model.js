@@ -34,13 +34,13 @@ constructor(){
   if (data) {
     // save best results
     this.stats.level0.best.addition = data.level0.best.addition;
-    this.stats.level1.best.addition = data.level0.best.addition;
+    this.stats.level1.best.addition = data.level1.best.addition;
     this.stats.level0.best.subtraction = data.level0.best.subtraction;
-    this.stats.level1.best.subtraction = data.level0.best.subtraction;
+    this.stats.level1.best.subtraction = data.level1.best.subtraction;
     this.stats.level0.best.multiplication = data.level0.best.multiplication;
-    this.stats.level1.best.multiplication = data.level0.best.multiplication;
+    this.stats.level1.best.multiplication = data.level1.best.multiplication;
     this.stats.level0.best.division = data.level0.best.division;
-    this.stats.level1.best.division = data.level0.best.division;
+    this.stats.level1.best.division = data.level1.best.division;
 
     // get check avalability features
     this.subtractionActiveEasy = this.stats.level0.best.addition;
