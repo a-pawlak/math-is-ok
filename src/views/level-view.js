@@ -7,6 +7,9 @@ class LevelView {
       
     }.bind(this))
   }
+  freezeToggler() {
+    this.levelEl.classList.toggle('freeze')
+  }
 }
 
 export default new LevelView()

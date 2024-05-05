@@ -3,6 +3,7 @@ import state from './model.js'
 import { manageNumbers } from "./num-gen.js";
 import keyboardView from "./views/keyboard-view.js";
 import statsView from "./views/stats-view.js";
+import levelView from "./views/level-view.js";
 
 export function keyboard(inputUser, action) { 
   newTaskRender(inputUser)
@@ -27,8 +28,12 @@ export function keyboard(inputUser, action) {
 export function levels(isEasy){
   state.setLevel(isEasy ? 0 : 1)
   manageNumbers(state.activeIndex);
-  newTaskRender()
-  statsView.updateStats(...state.getStats())
+  newTaskRender();
+  statsView.updateStats(...state.getStats());
+  levelView.freezeToggler();
+  setTimeout(function(){
+    levelView.freezeToggler();
+  }, 1700);
 }
 
 export function newTaskRender(inputUser = null){
