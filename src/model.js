@@ -184,6 +184,15 @@ resetData(){
 }
   this.stats = data
   localStorage.setItem('math-is-ok', JSON.stringify(this.stats));
+
+  this.additionActiveEasy = 200;
+  this.subtractionActiveEasy = 0;
+  this.multiplicationActiveEasy = 0;
+  this.divisionActiveEasy = 0;
+  this.additionActiveHard = 200;
+  this.subtractionActiveHard = 0;
+  this.multiplicationActiveHard = 0;
+  this.divisionActiveHard = 0;
 }
 
 }
